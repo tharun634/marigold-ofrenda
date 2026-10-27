@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Marigold — a local ofrenda</title>
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <header class="top">
+    <div>
+      <p class="eyebrow">Ghost in the machine</p>
+      <h1>Marigold</h1>
+      <p class="lede">A local ofrenda. Gemma reads the memories on this machine. Tiger Cloud keeps them. The altar answers only from what you place on it.</p>
+    </div>
+    <p id="status" class="status">Lighting the lamps…</p>
+  </header>
+
+  <main>
+    <section class="altar" aria-labelledby="altar-heading">
+      <div class="section-head">
+        <h2 id="altar-heading">The altar</h2>
+        <p>Sample names are invented. Replace them with people you actually remember.</p>
+      </div>
+      <div id="people" class="people"></div>
+    </section>
+
+    <section class="panel" aria-labelledby="ask-heading">
+      <h2 id="ask-heading">Ask the altar</h2>
+      <p class="hint">Pick a person to keep the search on their memories, or ask the whole altar.</p>
+      <div class="prompts">
+        <button type="button" data-question="What song did Abuela Rosa love?">What song did Abuela Rosa love?</button>
+        <button type="button" data-question="What was June Park's last commit message?">What was June Park's last commit message?</button>
+      </div>
+      <form id="ask-form">
+        <label for="question">Question</label>
+        <textarea id="question" name="question" rows="3" required placeholder="What did they leave on the windowsill?"></textarea>
+        <button type="submit" id="ask-button">Listen</button>
+      </form>
+      <article id="answer" class="answer" hidden>
+        <h3>From the altar</h3>
+        <p id="answer-text"></p>
+        <p id="answer-models" class="models"></p>
+        <ul id="sources"></ul>
+      </article>
+
+      <h2>Place a memory</h2>
+      <form id="memory-form">
+        <label for="memory-body">What should the altar remember?</label>
+        <textarea id="memory-body" required rows="3" placeholder="A story, a recipe, a song, a commit message."></textarea>
+        <button type="submit">Set it on the altar</button>
+      </form>
+
+      <h2>Add someone</h2>
+      <form id="person-form" class="grid-form">
+        <label>Name <input name="display_name" required maxlength="80" /></label>
+        <label>Relation <input name="relationship" maxlength="120" /></label>
+        <label>Years <input name="years_lived" maxlength="40" placeholder="1942–2019" /></label>
+        <label>Food <input name="favorite_food" maxlength="80" /></label>
+        <label>Song <input name="favorite_song" maxlength="80" /></label>
+        <label>Offering <input name="offering" maxlength="120" /></label>
+        <button type="submit">Place them here</button>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <p>Open weights via Ollama. Embeddings and words stay off closed APIs. Candles are a Timescale hypertable; memories are found with BM25 and pgvector, fused by reciprocal rank.</p>
+  </footer>
+  <script src="/app.js"></script>
+</body>
+</html>

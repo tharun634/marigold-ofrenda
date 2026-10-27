@@ -1,0 +1,226 @@
+:root {
+  --ink: #1c1410;
+  --paper: #f3e6cf;
+  --paper-deep: #e7d3b0;
+  --marigold: #e39b2b;
+  --marigold-deep: #b86a12;
+  --clay: #2a211c;
+  --rose: #8d3b3b;
+  --line: rgba(28, 20, 16, 0.16);
+  color: var(--ink);
+  background:
+    radial-gradient(circle at 12% 0%, rgba(227, 155, 43, 0.35), transparent 28rem),
+    radial-gradient(circle at 90% 10%, rgba(141, 59, 59, 0.25), transparent 24rem),
+    var(--clay);
+  font-family: "Iowan Old Style", Palatino, "Palatino Linotype", Georgia, serif;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  color: var(--paper);
+}
+
+button, input, textarea {
+  font: inherit;
+}
+
+.top, main, footer {
+  width: min(1120px, calc(100% - 2rem));
+  margin-inline: auto;
+}
+
+.top {
+  display: flex;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding: 2.2rem 0 1rem;
+  align-items: end;
+}
+
+.eyebrow {
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  font-family: "Segoe UI", sans-serif;
+  font-size: 0.75rem;
+  color: var(--marigold);
+  margin: 0 0 0.4rem;
+}
+
+h1 {
+  font-weight: 500;
+  font-size: clamp(3.2rem, 8vw, 5.5rem);
+  line-height: 0.85;
+  margin: 0;
+}
+
+.lede, .hint, footer p, .section-head p {
+  max-width: 42rem;
+  line-height: 1.5;
+}
+
+.status {
+  margin: 0;
+  font-family: "Segoe UI", sans-serif;
+  font-size: 0.85rem;
+  border: 1px solid rgba(243, 230, 207, 0.3);
+  padding: 0.55rem 0.75rem;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+
+main {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 1.25rem;
+  padding-bottom: 2rem;
+}
+
+.panel, .card, .answer {
+  background: var(--paper);
+  color: var(--ink);
+  border-radius: 1.25rem;
+}
+
+.panel { padding: 1.25rem 1.3rem 1.5rem; }
+
+.section-head h2, .panel h2, .answer h3 {
+  margin: 0 0 0.35rem;
+  font-weight: 500;
+}
+
+.people {
+  display: grid;
+  gap: 0.9rem;
+}
+
+.card {
+  padding: 1rem 1rem 0.9rem;
+  position: relative;
+  overflow: hidden;
+  border: 2px solid transparent;
+}
+
+.card.selected { border-color: var(--marigold-deep); }
+
+.card header {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  align-items: start;
+}
+
+.card h3 { margin: 0; font-size: 1.7rem; font-weight: 500; }
+
+.years {
+  font-family: "Segoe UI", sans-serif;
+  font-size: 0.85rem;
+  color: var(--rose);
+}
+
+.relation { margin: 0.2rem 0 0.7rem; color: #5c4636; }
+
+.offerings {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.offerings li, .models, .rank {
+  font-family: "Segoe UI", sans-serif;
+  font-size: 0.82rem;
+}
+
+.offerings li {
+  background: var(--paper-deep);
+  border-radius: 999px;
+  padding: 0.25rem 0.6rem;
+}
+
+.card-actions {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 0.9rem;
+}
+
+button {
+  background: var(--ink);
+  color: var(--paper);
+  border: 0;
+  border-radius: 999px;
+  padding: 0.55rem 0.9rem;
+  cursor: pointer;
+}
+
+button.secondary {
+  background: transparent;
+  color: var(--ink);
+  border: 1px solid var(--line);
+}
+
+button:disabled { opacity: 0.6; cursor: wait; }
+
+.prompts { display: flex; flex-wrap: wrap; gap: 0.45rem; margin: 0.6rem 0 0.8rem; }
+
+.prompts button, form button { margin-top: 0.4rem; }
+
+label { display: grid; gap: 0.3rem; margin-top: 0.7rem; font-size: 0.95rem; }
+
+input, textarea {
+  width: 100%;
+  border: 1px solid var(--line);
+  background: #fffaf2;
+  border-radius: 0.75rem;
+  padding: 0.6rem 0.7rem;
+  color: var(--ink);
+}
+
+.answer { margin: 1rem 0; padding: 1rem; background: #fffaf2; }
+
+.answer p { line-height: 1.5; }
+
+.models { color: #6b5344; }
+
+#sources { padding-left: 1.1rem; }
+
+#sources li { margin: 0.45rem 0; }
+
+.rank { color: #6b5344; }
+
+.candle {
+  width: 0.7rem;
+  height: 1.5rem;
+  background: linear-gradient(#f7f1e4, #d7b56a);
+  border-radius: 0.2rem;
+  position: relative;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.08);
+}
+
+.candle::before {
+  content: "";
+  position: absolute;
+  left: 0.22rem;
+  top: -0.55rem;
+  width: 0.26rem;
+  height: 0.55rem;
+  background: radial-gradient(circle, #fff4c8, #e39b2b 60%, transparent 70%);
+  border-radius: 50% 50% 50% 50%;
+  animation: flame 1.1s ease-in-out infinite;
+}
+
+@keyframes flame {
+  50% { transform: scale(1.15) translateY(-1px); }
+}
+
+footer { padding: 0 0 2.5rem; color: rgba(243, 230, 207, 0.78); }
+
+@media (max-width: 860px) {
+  main { grid-template-columns: 1fr; }
+  .top { flex-direction: column; align-items: start; }
+  .status { white-space: normal; }
+}
